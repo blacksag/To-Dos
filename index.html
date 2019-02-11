@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>My TODOS</title>
+</head>
+
+<body>
+	<h1>TO-DOs</h1>
+	<div>
+		<button onclick="handler.addTodos()">Add</button>
+		<input type="text" id="todoAddTextInput">
+	</div>
+	<div>
+		<button onclick="handler.changeTodos()">Change</button>
+		<input type="number" id="todoChangePositionInput">
+		<input type="text" id="todoChangeNameInput">
+	</div>
+	<div>
+		<button onclick="handler.deleteTodos()">Delete</button>
+		<input type="number" id="todoDeletePositionInput">
+	</div>
+	<div>
+		<button onclick="handler.toggleCompleted()">Toggle</button>
+		<input type="number" id="todoTogglePositionInput"></div>
+	</div>
+	<div>
+		<button onclick="handler.toggleAll()">Toggle All</button>
+	</div>
+	<div>
+		<ul></ul>
+	</div>
+	<script type="text/javascript" src="todos.js"></script>
+</body>
+
+</html>
