@@ -69,10 +69,6 @@ var todoList = {
 
 var handler = {
 	size : 0,
-
-	displayTodos : function() {
-		view.displayTodos();
-	},
 	
 	addTodos : function() {
 		var todoAddTextInput = document.getElementById('todoAddTextInput');
@@ -83,7 +79,7 @@ var handler = {
 			todoList.addTodos(todoAddTextInput.value);
 			todoAddTextInput.value = '';
 			this.size++;
-			this.displayTodos();
+			view.displayTodos();
 		}
 	},
 
@@ -101,7 +97,7 @@ var handler = {
 			todoList.changeTodos(inputValue,todoChangeNameInput.value);
 			todoChangePositionInput.value = '';
 			todoChangeNameInput.value = '';
-			this.displayTodos();
+			view.displayTodos();
 		}
 	},
 
@@ -118,8 +114,14 @@ var handler = {
 			todoList.deleteTodos(inputValue);
 			todoDeletePositionInput.value = '';
 			this.size--;
-			this.displayTodos();
+			view.displayTodos();
 		}
+	},
+
+	advanceDeleteTodos : function(position) {
+		todoList.deleteTodos(position);
+		this.size--;
+		view.displayTodos();
 	},
 
 	toggleCompleted : function() {
@@ -135,13 +137,18 @@ var handler = {
 		{
 			todoList.toggleCompleted(todoTogglePositionInput.valueAsNumber);
 			todoTogglePositionInput.value = '';
-			this.displayTodos();
+			view.displayTodos();
 		}
+	},
+
+	advanceToggleCompleted : function(position) {
+		todoList.toggleCompleted(position);
+		view.displayTodos();
 	},
 	
 	toggleAll : function() {
 		todoList.toggleAll();
-		this.displayTodos();
+		view.displayTodos();
 	},
 
 	emptyHandler : function() {
@@ -171,13 +178,39 @@ var view = {
 			var todoLi = document.createElement('li');
 			var todoText = '';
 			if (todo.completed === true) {
-				todoText = '(x) ' + todo.todoText;
+				todoText = '(x) ' + todo.todoText + '  ';
 			}
 			else {
-				todoText = '( ) ' + todo.todoText;
+				todoText = '( ) ' + todo.todoText + '  ';
 			}
 			todoLi.textContent = todoText;
+			todoLi.id = i;
+			todoLi.appendChild(this.createDeleteButton());
+			todoLi.appendChild(this.createToggleButton());
 			todosUl.appendChild(todoLi);
 		}
+	},
+
+	createDeleteButton : function() {
+		var deleteButton =  document.createElement('button');
+		deleteButton.textContent = 'Delete';
+		deleteButton.className = 'advanceDeleteButton';
+		deleteButton.onclick = function() {
+			var position = this.parentNode.id;     //this->deleteButton
+			//console.log(this.parentNode)
+			handler.advanceDeleteTodos(position);
+		}
+		return deleteButton;
+	},
+
+	createToggleButton : function() {
+		var toggleButton = document.createElement('button');
+		toggleButton.textContent = 'Toggle';
+		toggleButton.className = 'advanceToggleButton';
+		toggleButton.onclick = function() {
+			var position = this.parentNode.id;
+			handler.advanceToggleCompleted(position);
+		}
+		return toggleButton;
 	}
 };
