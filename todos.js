@@ -45,23 +45,23 @@ var todoList = {
 		var completedTodos = 0;
 
 		//get number of completed todos
-		for (var i = 0; i < totalTodos; i++) {
-			if (this.todos[i].completed === true) {
+		this.todos.forEach( function (todo) {
+			if (todo.completed === true) {
 				completedTodos++;
 			}
-		}
+		});
 
 		//if everything is true make everything false
 		if (completedTodos === totalTodos) {
-			for(var i = 0; i < totalTodos; i++) {
-				this.todos[i].completed = false;
-			}
+			this.todos.forEach( function (todo) {
+				todo.completed = false;
+			});
 		}
 		//otherwise make all true
 		else {
-			for(var i = 0; i < totalTodos; i++) {
-				this.todos[i].completed = true;
-			}
+			this.todos.forEach( function (todo) {
+				todo.completed = true;
+			});
 		}
 		
 	}
@@ -173,22 +173,21 @@ var view = {
 		var todosUl = document.querySelector('ul');
 		var size = todoList.todos.length;
 		todosUl.innerHTML = '';
-		for (var i = 0; i<size; i++) {
-			var todo = todoList.todos[i];
-			var todoLi = document.createElement('li');
-			var todoText = '';
-			if (todo.completed === true) {
-				todoText = '(x) ' + todo.todoText + '  ';
-			}
-			else {
-				todoText = '( ) ' + todo.todoText + '  ';
-			}
-			todoLi.textContent = todoText;
-			todoLi.id = i;
-			todoLi.appendChild(this.createDeleteButton());
-			todoLi.appendChild(this.createToggleButton());
-			todosUl.appendChild(todoLi);
-		}
+		todoList.todos.forEach(function (todo,position) {
+				var todoLi = document.createElement('li');
+				var todoText = '';
+				if (todo.completed === true) {
+					todoText = '(x) ' + todo.todoText + '  ';
+				}
+				else {
+					todoText = '( ) ' + todo.todoText + '  ';
+				}
+				todoLi.textContent = todoText;
+				todoLi.id = position;
+				todoLi.appendChild(this.createDeleteButton());
+				todoLi.appendChild(this.createToggleButton());
+				todosUl.appendChild(todoLi);
+			},this);
 	},
 
 	createDeleteButton : function() {
