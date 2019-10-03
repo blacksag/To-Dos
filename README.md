@@ -16,8 +16,8 @@ The functions of this object is used by handler for creating and updating the ht
 ## NOTE:
 **TOGGLE AND DELETE CAN BE DONE EITHER VIA SEPERATE BUTTONS FOR EACH ITEM OR BY SPECIFING INDEX IN THE INPUT FIELD AND THE INDEXING IS DONE FROM 0!**
 
-## Acceptable Changes
+## Acceptable Changes (PRs)
 1. Most important changes are welcomed in UI(Obviously!).
 2. Any improvement in JS file for adding or improving thing are also appreciated.
-3. For those who are more into technical optimization can make 
-**Also, If you have an idea regarding any improvement you can create an issue so that other interested ones can work open it.
+
+**Also, If you have an idea regarding any improvement you can create an issue so that other interested ones can work open it.**
