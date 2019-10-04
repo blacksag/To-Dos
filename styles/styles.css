@@ -1,0 +1,48 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  font-family: inherit;
+}
+
+.todo-action {
+  display: flex;
+  margin: 5px 0;
+}
+
+button {
+  border: 0;
+  border-radius: 2px;
+  color: white;
+  max-width: 100px;
+  padding: 5px 10px;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.button--add {
+  background-color: #4caf50;
+}
+
+.button--change {
+  background-color: #03a9f4;
+}
+
+.button--delete {
+  background-color: #e91e63;
+}
+
+.button--toggle {
+  background-color: #4c626d;
+}
+
+.todos-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todos-list li {
+  margin: 10px 0;
+}
