@@ -5,34 +5,48 @@
 	<title>My TODOS</title>
 </head>
 
+<style>
+#heading{
+	text-align: center;
+}
+
+#btn{
+	width:90px;
+}
+</style>
+
 <body>
-	<h1>TO-DOs</h1>
+	<h1 id="heading">TO-DOs</h1>
 	<div>
-		<button onclick="handler.addTodos()">Add</button>
+		<button id="btn" onclick="handler.addTodos()">Add</button>
 		<input type="text" id="todoAddTextInput">
 	</div>
+	<br>
 	<div>
-		<button onclick="handler.changeTodos()">Change</button>
-		<input type="number" id="todoChangePositionInput">
+		<button id="btn" onclick="handler.changeTodos()">Change</button>
+		<input type="number" id="todoChangePositionInput"> To
 		<input type="text" id="todoChangeNameInput">
 	</div>
+	<br>
 	<div>
-		<button onclick="handler.deleteTodos()">Delete</button>
+		<button id="btn" onclick="handler.deleteTodos()">Delete</button>
 		<input type="number" id="todoDeletePositionInput">
 	</div>
+	<br>
 	<div>
-		<button onclick="handler.toggleCompleted()">Toggle</button>
+		<button id="btn" onclick="handler.toggleCompleted()">Toggle</button>
 		<input type="number" id="todoTogglePositionInput"></div>
 	</div>
+	<br>
 	<div>
-		<button onclick="handler.toggleAll()">Toggle All</button>
+		<button id="btn" onclick="handler.toggleAll()">Toggle All</button>
 	</div>
 	<div>
 		<ul></ul>
 	</div>
-	<div>
+	<!-- <div>
 		<button>click me</button>
-	</div>
+	</div> -->
 	<script type="text/javascript" src="todos.js"></script>
 </body>
 
