@@ -1,39 +1,70 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<title>My TODOS</title>
-</head>
-
-<body>
-	<h1>TO-DOs</h1>
-	<div>
-		<button onclick="handler.addTodos()">Add</button>
-		<input type="text" id="todoAddTextInput">
-	</div>
-	<div>
-		<button onclick="handler.changeTodos()">Change</button>
-		<input type="number" id="todoChangePositionInput">
-		<input type="text" id="todoChangeNameInput">
-	</div>
-	<div>
-		<button onclick="handler.deleteTodos()">Delete</button>
-		<input type="number" id="todoDeletePositionInput">
-	</div>
-	<div>
-		<button onclick="handler.toggleCompleted()">Toggle</button>
-		<input type="number" id="todoTogglePositionInput"></div>
-	</div>
-	<div>
-		<button onclick="handler.toggleAll()">Toggle All</button>
-	</div>
-	<div>
-		<ul></ul>
-	</div>
-	<div>
-		<button>click me</button>
-	</div>
-	<script type="text/javascript" src="todos.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My TODOS</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+    </style>
+  </head>
+  <body>
+    <h1>TO-DOs</h1>
+    <div class="todos">
+      <div class="todo-actions">
+        <div class="todo-action">
+          <input type="text" id="todoAddTextInput" placeholder="Add New Todo" />
+          <button class="button--add" onclick="handler.addTodos()">Add</button>
+        </div>
+        <div class="todo-action">
+          <input
+            type="number"
+            id="todoChangePositionInput"
+            placeholder="Edit Todo (Index)"
+          />
+          <button class="button--change" onclick="handler.changeTodos()">
+            Edit
+          </button>
+        </div>
+        <div class="todo-action">
+          <input
+            type="text"
+            id="todoChangeNameInput"
+            placeholder="Delete Todo"
+          />
+          <button class="button--delete" onclick="handler.deleteTodos()">
+            Delete
+          </button>
+        </div>
+        <div class="todo-action">
+          <input
+            type="number"
+            id="todoDeletePositionInput"
+            placeholder="Toggle Todo (Index)"
+          />
+          <button class="button--toggle" onclick="handler.toggleCompleted()">
+            Toggle
+          </button>
+        </div>
+        <div class="todo-action">
+          <label for="toggleAll">
+            Toggle All Todos
+            <input
+              type="checkbox"
+              name="toggleAll"
+              id="toggleAll"
+              onchange="handler.toggleAll()"
+            />
+          </label>
+        </div>
+      </div>
+      <ul class="todos-list"></ul>
+    </div>
+    <div>
+      <button>click me</button>
+    </div>
+    <script type="text/javascript" src="todos.js"></script>
+  </body>
 </html>
