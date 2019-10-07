@@ -63,6 +63,12 @@ var todoList = {
 				todo.completed = true;
 			});
 		}
+
+		//toggleAll should simply toggle the truth value for the completed flag instead of setting the same value for each todo 
+		//use the following code if this is the required functionality as per your use case
+		// this.todos.forEach(todo=>{
+		// 	todo.completed=!todo.completed;
+		// })
 		
 	}
 };
