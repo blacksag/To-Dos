@@ -1,53 +1,55 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<title>My TODOS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My TODOS</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<style>
-#heading{
-	text-align: center;
-}
-
-#btn{
-	width:90px;
-}
-</style>
-
 <body>
-	<h1 id="heading">TO-DOs</h1>
-	<div>
-		<button id="btn" onclick="handler.addTodos()">Add</button>
-		<input type="text" id="todoAddTextInput">
-	</div>
-	<br>
-	<div>
-		<button id="btn" onclick="handler.changeTodos()">Change</button>
-		<input type="number" id="todoChangePositionInput"> To
-		<input type="text" id="todoChangeNameInput">
-	</div>
-	<br>
-	<div>
-		<button id="btn" onclick="handler.deleteTodos()">Delete</button>
-		<input type="number" id="todoDeletePositionInput">
-	</div>
-	<br>
-	<div>
-		<button id="btn" onclick="handler.toggleCompleted()">Toggle</button>
-		<input type="number" id="todoTogglePositionInput"></div>
-	</div>
-	<br>
-	<div>
-		<button id="btn" onclick="handler.toggleAll()">Toggle All</button>
-	</div>
-	<div>
-		<ul></ul>
-	</div>
-	<!-- <div>
-		<button>click me</button>
-	</div> -->
-	<script type="text/javascript" src="todos.js"></script>
-</body>
 
+    <h1>To-Do APP</h1>
+       
+    <div class="wrapper">
+
+        <div class="controls">
+            <div class="add-item">
+                <button id="btn" onclick="handler.addTodos()">Add</button>
+                <input class="effect" type="text" id="todoAddTextInput" placeholder="Add new Item">
+            </div>
+            
+            <div class="rename-item">
+                <button id="btn" onclick="handler.changeTodos()">Change</button>
+                <input class="effect" type="number" id="todoChangePositionInput"> To
+                <input class="effect" type="text" id="todoChangeNameInput" placeholder="Rename Item">
+            </div>
+        
+            <div class="delete-item">
+                <button id="btn" onclick="handler.deleteTodos()">Delete</button>
+                <input class="effect" type="number" id="todoDeletePositionInput">
+            </div>
+        
+            <div class="toggle-item">
+                <button id="btn" onclick="handler.toggleCompleted()">Toggle</button>
+                <input class="effect" type="number" id="todoTogglePositionInput">
+            </div>
+            
+            <div class="toggla-all-items">
+                <button id="btn" onclick="handler.toggleAll()">Toggle All</button>
+            </div>
+        </div>
+
+
+        <div class="todos-container">
+            <h2>Open Tasks</h2>
+            <ul>
+                
+            </ul>
+        </div>
+
+    </div>
+        
+    <script type="text/javascript" src="todos.js"></script>
+</body>
 </html>
