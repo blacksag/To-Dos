@@ -93,13 +93,19 @@ var handler = {
 		var todoChangePositionInput = document.getElementById('todoChangePositionInput');
 		var todoChangeNameInput = document.getElementById('todoChangeNameInput');
 		var inputValue = todoChangePositionInput.valueAsNumber;
-		if (todoChangePositionInput.value === '' || todoChangeNameInput.value === '') {
+		var hasDuplicate = todoList.todos.some(todo =>
+			todo.todoText === todoChangeNameInput.value
+		)
+
+		if (
+			hasDuplicate ||
+			todoChangePositionInput.value === '' ||
+			todoChangeNameInput.value === ''
+		) {
 			this.emptyHandler();
-		}
-		else if (inputValue >= this.size || inputValue < 0) {
+		} else if (inputValue >= this.size || inputValue < 0) {
 			this.indexHandler(this.size);
-		}
-		else {
+		} else {
 			todoList.changeTodos(inputValue,todoChangeNameInput.value);
 			todoChangePositionInput.value = '';
 			todoChangeNameInput.value = '';
