@@ -183,10 +183,10 @@ var view = {
 				var todoLi = document.createElement('li');
 				var todoText = '';
 				if (todo.completed === true) {
-					todoText = '(x) ' + todo.todoText + '  ';
+					todoText = '☒ ' + todo.todoText + '  ';
 				}
 				else {
-					todoText = '( ) ' + todo.todoText + '  ';
+					todoText = '☐ ' + todo.todoText + '  ';
 				}
 				todoLi.textContent = todoText;
 				todoLi.id = position;
