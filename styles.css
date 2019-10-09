@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    background-color: #008CBA;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: normal
+}
+
+h2{
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.controls{
+    margin-top: 20px;
+}
+
+.controls button{
+    border-radius: 4px;
+    margin: 7px 12px;
+    padding: 8px 18px;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    width: 10em;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    background-color: #4CAF50;;
+}
+
+input[type="text"]{
+    font: 15px/24px sans-serif; 
+    color: #333; 
+    box-sizing: border-box; 
+    letter-spacing: 1px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number]{
+    -moz-appearance:textfield; /* Firefox */
+    font: 15px/24px sans-serif; 
+    color: #333; 
+    box-sizing: border-box; 
+    letter-spacing: 1px;
+}
+
+
+
+.effect{
+    border: 0; 
+    padding: 7px 0; 
+    border-bottom: 1px solid #ccc;
+}
+
+.todos-container{
+    margin-top: 20px;
+}
+
+ul{
+    margin-top: 10px;
+    list-style: none;
+}
+
+ul li{
+    font: 15px/24px sans-serif; 
+    color: #333; 
+    box-sizing: border-box; 
+    letter-spacing: 1px;
+}
+
+ul button{
+    border-radius: 4px;
+    margin: 7px 12px;
+    padding: 8px 18px;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    width: 6em;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    background-color: #008CBA;
+}
