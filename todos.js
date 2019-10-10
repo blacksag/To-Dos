@@ -97,8 +97,9 @@ var handler = {
 			todo.todoText === todoChangeNameInput.value
 		)
 
-		if (
-			hasDuplicate ||
+		if (hasDuplicate) {
+			this.duplicateHanlder(todoChangeNameInput.value)
+		} else if (
 			todoChangePositionInput.value === '' ||
 			todoChangeNameInput.value === ''
 		) {
@@ -165,6 +166,13 @@ var handler = {
 
 	emptyHandler : function() {
 		window.alert("Enter some value!");
+	},
+
+	duplicateHanlder : function(value) {
+		window.alert(
+			'"' + value + '" already exists from the open tasks.\n' +
+			'Try to use another name.'
+		);
 	},
 
 	indexHandler : function (s) {
