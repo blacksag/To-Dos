@@ -1,6 +1,15 @@
+function loadTodos() {
+	try {
+		const todos = JSON.parse(localStorage.getItem('todos'));
+		return Array.isArray(todos) ? todos : []
+	} catch (error) {
+		return []
+	}
+}
+
 var todoList = {
-	
-	todos : [],
+
+	todos : loadTodos(),
 
 	// displayTodos : function() {										//for displaying in console
 	// 	if (this.todos.length === 0) {
@@ -18,26 +27,30 @@ var todoList = {
 	// 		}
 	// 	}
 	// },
-	
+
 	addTodos : function(todoText) {
 		this.todos.push({
 			todoText : todoText,
 			completed : false
 		});
+		this.saveTodos()
 	},
-	
+
 	changeTodos : function(position,todoText) {
 		var todo = this.todos[position];
 		todo.todoText = todoText;
+		this.saveTodos()
 	},
-	
+
 	deleteTodos : function (position) {
 		this.todos.splice(position,1);
+		this.saveTodos()
 	},
 
 	toggleCompleted : function (position) {
 		var todo = this.todos[position];
 		todo.completed = !todo.completed;
+		this.saveTodos()
 	},
 
 	toggleAll : function () {
@@ -64,18 +77,23 @@ var todoList = {
 			});
 		}
 
-		//toggleAll should simply toggle the truth value for the completed flag instead of setting the same value for each todo 
+		//toggleAll should simply toggle the truth value for the completed flag instead of setting the same value for each todo
 		//use the following code if this is the required functionality as per your use case
 		// this.todos.forEach(todo=>{
 		// 	todo.completed=!todo.completed;
 		// })
-		
-	}
+
+		this.saveTodos()
+	},
+
+	saveTodos: function () {
+		localStorage.setItem('todos', JSON.stringify(this.todos))
+	},
 };
 
 var handler = {
 	size : 0,
-	
+
 	addTodos : function() {
 		var todoAddTextInput = document.getElementById('todoAddTextInput');
 		if (todoAddTextInput.value === '') {
@@ -145,7 +163,7 @@ var handler = {
 		else  if (inputValue >= this.size || inputValue < 0) {
 			this.indexHandler(this.size);
 		}
-		else 
+		else
 		{
 			todoList.toggleCompleted(todoTogglePositionInput.valueAsNumber);
 			todoTogglePositionInput.value = '';
@@ -157,7 +175,7 @@ var handler = {
 		todoList.toggleCompleted(position);
 		view.displayTodos();
 	},
-	
+
 	toggleAll : function() {
 		todoList.toggleAll();
 		view.displayTodos();
@@ -225,3 +243,6 @@ var view = {
 		return toggleButton;
 	}
 };
+
+// Initial render.
+view.displayTodos()
