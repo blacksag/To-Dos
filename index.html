@@ -9,47 +9,64 @@
 </head>
 <body>
 
-    <h1>To-Do APP</h1>
-       
+    <div class="top-bar">
+        <h1>To-Do APP</h1>
+    </div>
+
     <div class="wrapper">
 
         <div class="controls">
-            <div class="add-item">
-                <button id="btn" onclick="handler.addTodos()">Add</button>
-                <input class="effect" type="text" id="todoAddTextInput" placeholder="Add new Item">
+            <div class="control-group add-item">
+                <div class="control-group-buttons">
+                    <button id="btn" onclick="handler.addTodos()">Add</button>
+                </div>
+                <div class="control-group-inputs">
+                    <input class="effect" type="text" id="todoAddTextInput" placeholder="New Item">
+                </div>
             </div>
-            
-            <div class="rename-item">
-                <button id="btn" onclick="handler.changeTodos()">Change</button>
-                <input class="effect" type="number" id="todoChangePositionInput"> To
-                <input class="effect" type="text" id="todoChangeNameInput" placeholder="Rename Item">
+
+            <div class="control-group rename-item">
+                <div class="control-group-buttons">
+                    <button id="btn" onclick="handler.changeTodos()">Change</button>
+                </div>
+                <div class="control-group-inputs">
+                    <input class="effect" type="number" id="todoChangePositionInput" placeholder="Item Index">
+                    <input class="effect" type="text" id="todoChangeNameInput" placeholder="New Item Name">
+                </div>
             </div>
-        
-            <div class="delete-item">
-                <button id="btn" onclick="handler.deleteTodos()">Delete</button>
-                <input class="effect" type="number" id="todoDeletePositionInput">
+
+            <div class="control-group delete-item">
+                <div class="control-group-buttons">
+                    <button id="btn" onclick="handler.deleteTodos()" class="danger">Delete</button>
+                </div>
+                <div class="control-group-inputs">
+                    <input class="effect" type="number" id="todoDeletePositionInput" placeholder="Item Index">
+                </div>
             </div>
-        
-            <div class="toggle-item">
-                <button id="btn" onclick="handler.toggleCompleted()">Toggle</button>
-                <input class="effect" type="number" id="todoTogglePositionInput">
+
+            <div class="control-group toggle-item">
+                <div class="control-group-buttons">
+                    <button id="btn" onclick="handler.toggleCompleted()" class="success">Toggle</button>
+                </div>
+                <div class="control-group-inputs">
+                    <input class="effect" type="number" id="todoTogglePositionInput" placeholder="Item Index">
+                </div>
             </div>
-            
-            <div class="toggla-all-items">
-                <button id="btn" onclick="handler.toggleAll()">Toggle All</button>
+
+            <div class="control-group toggle-all-items">
+                <div class="control-group-buttons">
+                    <button id="btn" onclick="handler.toggleAll()" class="success">Toggle All</button>
+                </div>
             </div>
         </div>
-
 
         <div class="todos-container">
             <h2>Open Tasks</h2>
-            <ul>
-                
-            </ul>
+            <ul></ul>
         </div>
 
     </div>
-        
+
     <script type="text/javascript" src="todos.js"></script>
 </body>
 </html>
