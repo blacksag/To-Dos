@@ -97,8 +97,9 @@ var handler = {
 			todo.todoText === todoChangeNameInput.value
 		)
 
-		if (
-			hasDuplicate ||
+		if (hasDuplicate) {
+			this.duplicateHanlder(todoChangeNameInput.value)
+		} else if (
 			todoChangePositionInput.value === '' ||
 			todoChangeNameInput.value === ''
 		) {
@@ -167,6 +168,13 @@ var handler = {
 		window.alert("Enter some value!");
 	},
 
+	duplicateHanlder : function(value) {
+		window.alert(
+			'"' + value + '" already exists from the open tasks.\n' +
+			'Try to use another name.'
+		);
+	},
+
 	indexHandler : function (s) {
 		window.alert("Index out of size!\n" + s + " is the maximum size!!");
 	}
@@ -183,29 +191,31 @@ var handler = {
 var view = {
 	displayTodos : function() {
 		var todosUl = document.querySelector('ul');
-		var size = todoList.todos.length;
+
 		todosUl.innerHTML = '';
 		todoList.todos.forEach(function (todo,position) {
 				var todoLi = document.createElement('li');
-				var todoText = '';
+				var todoSpan = document.createElement('span');
+
 				if (todo.completed === true) {
-					todoText = '☒ ' + todo.todoText + '  ';
+					todoSpan.textContent = '☒ ' + todo.todoText + '  ';
 				}
 				else {
-					todoText = '☐ ' + todo.todoText + '  ';
+					todoSpan.textContent = '☐ ' + todo.todoText + '  ';
 				}
-				todoLi.textContent = todoText;
+
 				todoLi.id = position;
+				todoLi.appendChild(todoSpan)
 				todoLi.appendChild(this.createDeleteButton());
 				todoLi.appendChild(this.createToggleButton());
 				todosUl.appendChild(todoLi);
-			},this);
+			}, this);
 	},
 
 	createDeleteButton : function() {
 		var deleteButton =  document.createElement('button');
 		deleteButton.textContent = 'Delete';
-		deleteButton.className = 'advanceDeleteButton';
+		deleteButton.className = 'advanceDeleteButton danger';
 		deleteButton.onclick = function() {
 			var position = this.parentNode.id;     //this->deleteButton
 			//console.log(this.parentNode)
@@ -217,11 +227,12 @@ var view = {
 	createToggleButton : function() {
 		var toggleButton = document.createElement('button');
 		toggleButton.textContent = 'Toggle';
-		toggleButton.className = 'advanceToggleButton';
+		toggleButton.className = 'advanceToggleButton success';
 		toggleButton.onclick = function() {
 			var position = this.parentNode.id;
 			handler.advanceToggleCompleted(position);
 		}
+
 		return toggleButton;
 	}
 };
