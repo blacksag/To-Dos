@@ -30,7 +30,7 @@
                     <button id="btn" onclick="handler.changeTodos()">Change</button>
                 </div>
                 <div class="control-group-inputs">
-                    <input class="effect" type="number" id="todoChangePositionInput" placeholder="Item Index">
+                    <input class="effect" type="number" min="0" id="todoChangePositionInput" placeholder="Item Index">
                     <input class="effect" type="text" id="todoChangeNameInput" placeholder="New Item Name">
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <button id="btn" onclick="handler.deleteTodos()" class="danger">Delete</button>
                 </div>
                 <div class="control-group-inputs">
-                    <input class="effect" type="number" id="todoDeletePositionInput" placeholder="Item Index">
+                    <input class="effect" type="number" min="0" id="todoDeletePositionInput" placeholder="Item Index">
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                     <button id="btn" onclick="handler.toggleCompleted()" class="success">Toggle</button>
                 </div>
                 <div class="control-group-inputs">
-                    <input class="effect" type="number" id="todoTogglePositionInput" placeholder="Item Index">
+                    <input class="effect" type="number" min="0" id="todoTogglePositionInput" placeholder="Item Index">
                 </div>
             </div>
 
