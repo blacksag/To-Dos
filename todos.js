@@ -73,11 +73,24 @@ var todoList = {
 	}
 };
 
+var input = document.getElementById("todoAddTextInput");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("btn").click();
+  }
+});
+
+
+
 var handler = {
 	size : 0,
 	
-	addTodos : function() {
+	
+	
+	addTodos : function(e) {
 		var todoAddTextInput = document.getElementById('todoAddTextInput');
+		
 		if (todoAddTextInput.value === '') {
 			this.emptyHandler();
 		}
@@ -88,6 +101,9 @@ var handler = {
 			view.displayTodos();
 		}
 	},
+
+	
+
 
 	changeTodos : function() {
 		var todoChangePositionInput = document.getElementById('todoChangePositionInput');
