@@ -9,7 +9,7 @@
 
 /* Reset */
 
-* {
+0* {
     box-sizing: border-box;
 }
 
@@ -161,7 +161,7 @@ input:focus {
 }
 
 .control-group-inputs input {
-    width: 100%;
+    width: 90%;
     margin-bottom: .5rem;
 }
 
