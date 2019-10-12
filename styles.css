@@ -1,8 +1,16 @@
+
+
+@@ -1,7 +1,3 @@
+
+
 :root {
+
+
     --dark: #303941;
+
+
     --light: #f2f5fa;
-    --light-gray: #c1d2ec;
-    --primary: #008CBA;
+    --light-gray: #c1d2ec;    --primary: #008CBA;
     --danger: rgb(186, 59, 0);
     --success: rgb(53, 186, 0);
 }
