@@ -75,7 +75,6 @@ var todoList = {
 
 var handler = {
 	size : 0,
-	
 	addTodos : function() {
 		var todoAddTextInput = document.getElementById('todoAddTextInput');
 		if (todoAddTextInput.value === '') {
@@ -179,6 +178,48 @@ var handler = {
 		window.alert("Index out of size!\n" + s + " is the maximum size!!");
 	}
 };
+
+let enterHandler = function(keyCode, functionToCall, parameters){
+	if(keyCode === 'Enter'){
+		//Need to bind handler for the 'this' error
+		functionToCall = functionToCall.bind(handler);
+		functionToCall(...parameters);
+	}
+};
+
+//Enter event handler for add input
+let todoAddTextInput = document.getElementById('todoAddTextInput');
+
+todoAddTextInput.addEventListener("keypress", function(e){
+	enterHandler(e.key, handler.addTodos, []);
+});
+
+let todoChangePositionHandler = function(e){
+	enterHandler(e.key, handler.changeTodos, []);
+};
+
+//Enter event handler for change inputs
+let todoChangesInputs = document.querySelectorAll('.todoChangeInputs');
+let todoChangesInputsLength = todoChangesInputs.length;
+
+for(let i = 0; i < todoChangesInputsLength; i++){
+	todoChangesInputs[i].addEventListener("keypress", todoChangePositionHandler);
+}
+
+//Enter event handler for delete input
+let todoDeletePositionInput = document.getElementById('todoDeletePositionInput');
+
+todoDeletePositionInput.addEventListener("keypress", function(e){
+	enterHandler(e.key, handler.deleteTodos, []);
+});
+
+//Enter event handler for toggle input
+let todoTogglePositionInput = document.getElementById('todoTogglePositionInput');
+todoTogglePositionInput.addEventListener("keypress", function(e){
+	enterHandler(e.key, handler.toggleCompleted, []);
+});
+
+
 
 // var myButton = document.getElementById('myButton');
 
