@@ -199,12 +199,9 @@ let todoChangePositionHandler = function(e){
 };
 
 //Enter event handler for change inputs
-let todoChangesInputs = document.querySelectorAll('.todoChangeInputs');
-let todoChangesInputsLength = todoChangesInputs.length;
+let todoChangeNameInput = document.getElementById('todoChangeNameInput');
 
-for(let i = 0; i < todoChangesInputsLength; i++){
-	todoChangesInputs[i].addEventListener("keypress", todoChangePositionHandler);
-}
+todoChangeNameInput.addEventListener("keypress", todoChangePositionHandler);
 
 //Enter event handler for delete input
 let todoDeletePositionInput = document.getElementById('todoDeletePositionInput');
