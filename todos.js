@@ -215,7 +215,7 @@ var view = {
 	createDeleteButton : function() {
 		var deleteButton =  document.createElement('button');
 		deleteButton.textContent = 'Delete';
-		deleteButton.className = 'advanceDeleteButton danger';
+		deleteButton.className = 'advanceDeleteButton btn-outline-danger';
 		deleteButton.onclick = function() {
 			var position = this.parentNode.id;     //this->deleteButton
 			//console.log(this.parentNode)
@@ -227,7 +227,7 @@ var view = {
 	createToggleButton : function() {
 		var toggleButton = document.createElement('button');
 		toggleButton.textContent = 'Toggle';
-		toggleButton.className = 'advanceToggleButton success';
+		toggleButton.className = 'advanceToggleButton btn-outline-success';
 		toggleButton.onclick = function() {
 			var position = this.parentNode.id;
 			handler.advanceToggleCompleted(position);
