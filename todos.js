@@ -198,10 +198,10 @@ var view = {
 				var todoSpan = document.createElement('span');
 
 				if (todo.completed === true) {
-					todoSpan.textContent = '☒ ' + todo.todoText + '  ';
+					todoSpan.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>  ' + todo.todoText + '  ';
 				}
 				else {
-					todoSpan.textContent = '☐ ' + todo.todoText + '  ';
+					todoSpan.innerHTML = '<i class="fa fa-hourglass-half" aria-hidden="true"></i>  ' + todo.todoText + '  ';
 				}
 
 				todoLi.id = position;
@@ -214,8 +214,8 @@ var view = {
 
 	createDeleteButton : function() {
 		var deleteButton =  document.createElement('button');
-		deleteButton.textContent = 'Delete';
-		deleteButton.className = 'advanceDeleteButton danger';
+		deleteButton.innerHTML= '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+		deleteButton.className = 'advanceDeleteButton transperant';
 		deleteButton.onclick = function() {
 			var position = this.parentNode.id;     //this->deleteButton
 			//console.log(this.parentNode)

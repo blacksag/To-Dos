@@ -5,6 +5,7 @@
     --primary: #008CBA;
     --danger: rgb(186, 59, 0);
     --success: rgb(53, 186, 0);
+    --transperant:rgba(255, 255, 255, 0.055);
 }
 
 /* Reset */
@@ -45,7 +46,17 @@ button:focus {
         0 0 0 3px rgba(0, 139, 186, 0.4);
 
 }
+h1{
+    font-family: lato;
+    
+}
 
+button.transperant{
+    background-color: var(--transperant);
+    border-style: none;
+    box-shadow: none;
+    border: none;
+}
 button.danger {
     border: 1px solid var(--danger);
     background-color: var(--danger);
@@ -217,4 +228,11 @@ input:focus {
 
 .todos-container ul li button {
     margin-left: .25rem;
+}
+.fa-check-circle{
+   color: rgba(53, 186, 0);
+}
+.fa-times-circle{
+    font-size: 23px;
+    color: var(--danger);
 }
