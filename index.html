@@ -19,7 +19,7 @@
         <div class="controls">
             <div class="control-group add-item">
                 <div class="control-group-buttons">
-                    <button id="btn" onclick="handler.addTodos()">Add</button>
+                    <button id="btn_add_todo" onclick="handler.addTodos()" >Add</button>
                 </div>
                 <div class="control-group-inputs">
                     <input class="effect" type="text" id="todoAddTextInput" placeholder="New Item">
@@ -28,35 +28,35 @@
 
             <div class="control-group rename-item">
                 <div class="control-group-buttons">
-                    <button id="btn" onclick="handler.changeTodos()">Change</button>
+                    <button id="btn_change_todo" onclick="handler.changeTodos()">Change</button>
                 </div>
                 <div class="control-group-inputs">
-                    <input class="effect" type="number" min="0" id="todoChangePositionInput" placeholder="Item Index">
+                    <input class="effect" type="number" id="todoChangePositionInput" placeholder="Item Index">
                     <input class="effect" type="text" id="todoChangeNameInput" placeholder="New Item Name">
                 </div>
             </div>
 
             <div class="control-group delete-item">
                 <div class="control-group-buttons">
-                    <button id="btn" onclick="handler.deleteTodos()" class="danger">Delete</button>
+                    <button id="btn_delete_todo" onclick="handler.deleteTodos()" class="danger">Delete</button>
                 </div>
                 <div class="control-group-inputs">
-                    <input class="effect" type="number" min="0" id="todoDeletePositionInput" placeholder="Item Index">
+                    <input class="effect" type="number" id="todoDeletePositionInput" placeholder="Item Index">
                 </div>
             </div>
 
             <div class="control-group toggle-item">
                 <div class="control-group-buttons">
-                    <button id="btn" onclick="handler.toggleCompleted()" class="success">Toggle</button>
+                    <button id="btn_toggle_completed" onclick="handler.toggleCompleted()" class="success">Toggle</button>
                 </div>
                 <div class="control-group-inputs">
-                    <input class="effect" type="number" min="0" id="todoTogglePositionInput" placeholder="Item Index">
+                    <input class="effect" type="number" id="todoTogglePositionInput" placeholder="Item Index">
                 </div>
             </div>
 
             <div class="control-group toggle-all-items">
                 <div class="control-group-buttons">
-                    <button id="btn" onclick="handler.toggleAll()" class="success">Toggle All</button>
+                    <button id="btn_toggle_all" onclick="handler.toggleAll()" class="success">Toggle All</button>
                 </div>
             </div>
         </div>
