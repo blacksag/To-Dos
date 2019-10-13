@@ -78,7 +78,7 @@ var handler = {
 	addTodos : function() {
 		var todoAddTextInput = document.getElementById('todoAddTextInput');
 		if (todoAddTextInput.value === '') {
-			this.emptyHandler();
+			this.emptyHandler("Add");
 		}
 		else {
 			todoList.addTodos(todoAddTextInput.value);
@@ -102,7 +102,7 @@ var handler = {
 			todoChangePositionInput.value === '' ||
 			todoChangeNameInput.value === ''
 		) {
-			this.emptyHandler();
+			this.emptyHandler("Change");
 		} else if (inputValue >= this.size || inputValue < 0) {
 			this.indexHandler(this.size);
 		} else {
@@ -117,7 +117,7 @@ var handler = {
 		var todoDeletePositionInput = document.getElementById('todoDeletePositionInput');
 		var inputValue = todoDeletePositionInput.valueAsNumber;
 		if (todoDeletePositionInput.value === '') {
-			this.emptyHandler();
+			this.emptyHandler("Delete");
 		}
 		else if (inputValue >= this.size || inputValue < 0) {
 			this.indexHandler(this.size);
@@ -140,7 +140,7 @@ var handler = {
 		var todoTogglePositionInput = document.getElementById('todoTogglePositionInput');
 		var inputValue = todoTogglePositionInput.valueAsNumber;
 		if (todoTogglePositionInput.value === '' ) {
-			this.emptyHandler();
+			this.emptyHandler("Toggle");
 		}
 		else  if (inputValue >= this.size || inputValue < 0) {
 			this.indexHandler(this.size);
@@ -163,8 +163,8 @@ var handler = {
 		view.displayTodos();
 	},
 
-	emptyHandler : function() {
-		window.alert("Enter some value!");
+	emptyHandler : function(method) {
+		window.alert(`Enter some value in the input field to ${method} an Item!`);
 	},
 
 	duplicateHanlder : function(value) {
