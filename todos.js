@@ -232,22 +232,16 @@ var view = {
 
 		todosUl.innerHTML = '';
 		todoList.todos.forEach(function (todo,position) {
-				var todoLi = document.createElement('li');
-				var todoSpan = document.createElement('span');
-
-				if (todo.completed === true) {
-					todoSpan.textContent = '☒ ' + todo.todoText + '  ';
-				}
-				else {
-					todoSpan.textContent = '☐ ' + todo.todoText + '  ';
-				}
-
-				todoLi.id = position;
-				todoLi.appendChild(todoSpan)
-				todoLi.appendChild(this.createDeleteButton());
-				todoLi.appendChild(this.createToggleButton());
-				todosUl.appendChild(todoLi);
-			}, this);
+			var todoLi = document.createElement('li');
+			
+			todoLi.id = position;
+			todoLi.addEventListener('mousedown', 
+				event => view.toggleTodoCompleted(event, position)
+			);
+			todoLi.appendChild(this.createTodoTemplate(todo));
+			todoLi.appendChild(this.createDeleteButton());
+			todosUl.appendChild(todoLi);
+		}, this);
 	},
 
 	createDeleteButton : function() {
@@ -262,15 +256,31 @@ var view = {
 		return deleteButton;
 	},
 
-	createToggleButton : function() {
-		var toggleButton = document.createElement('button');
-		toggleButton.textContent = 'Toggle';
-		toggleButton.className = 'advanceToggleButton success';
-		toggleButton.onclick = function() {
-			var position = this.parentNode.id;
-			handler.advanceToggleCompleted(position);
+	createTodoTemplate : function({completed, todoText}) {
+		var todoLabel = document.createElement('label');
+		var todoInput = document.createElement('input');
+		var todoSpan = document.createElement('span');
+		var todoContent = document.createElement('span');
+		
+		todoInput.setAttribute('type', 'checkbox');
+		todoSpan.classList.add('todo-checkmark');
+		todoContent.textContent = todoText;
+
+		todoLabel.appendChild(todoInput);
+		todoLabel.appendChild(todoContent);
+		todoLabel.appendChild(todoSpan);
+
+		if (completed) {
+			todoInput.setAttribute('checked', completed);
+			todoContent.classList.add('todo-completed');
 		}
 
-		return toggleButton;
+		return todoLabel;
+	},
+
+	toggleTodoCompleted : function(event, position) {
+		if (event.target.className.indexOf('advanceDeleteButton') < 0) {
+			handler.advanceToggleCompleted(position);
+		}
 	}
 };
