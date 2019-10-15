@@ -1,5 +1,5 @@
 var todoList = {
-	
+
 	todos : [],
 
 	// displayTodos : function() {										//for displaying in console
@@ -18,19 +18,19 @@ var todoList = {
 	// 		}
 	// 	}
 	// },
-	
+
 	addTodos : function(todoText) {
 		this.todos.push({
 			todoText : todoText,
 			completed : false
 		});
 	},
-	
+
 	changeTodos : function(position,todoText) {
 		var todo = this.todos[position];
 		todo.todoText = todoText;
 	},
-	
+
 	deleteTodos : function (position) {
 		this.todos.splice(position,1);
 	},
@@ -64,12 +64,12 @@ var todoList = {
 			});
 		}
 
-		//toggleAll should simply toggle the truth value for the completed flag instead of setting the same value for each todo 
+		//toggleAll should simply toggle the truth value for the completed flag instead of setting the same value for each todo
 		//use the following code if this is the required functionality as per your use case
 		// this.todos.forEach(todo=>{
 		// 	todo.completed=!todo.completed;
 		// })
-		
+
 	}
 };
 
@@ -145,7 +145,7 @@ var handler = {
 		else  if (inputValue >= this.size || inputValue < 0) {
 			this.indexHandler(this.size);
 		}
-		else 
+		else
 		{
 			todoList.toggleCompleted(todoTogglePositionInput.valueAsNumber);
 			todoTogglePositionInput.value = '';
@@ -157,7 +157,7 @@ var handler = {
 		todoList.toggleCompleted(position);
 		view.displayTodos();
 	},
-	
+
 	toggleAll : function() {
 		todoList.toggleAll();
 		view.displayTodos();
@@ -233,21 +233,20 @@ var view = {
 		todosUl.innerHTML = '';
 		todoList.todos.forEach(function (todo,position) {
 			var todoLi = document.createElement('li');
-			
+
 			todoLi.id = position;
-			todoLi.addEventListener('mousedown', 
+			todoLi.addEventListener('mousedown',
 				event => view.toggleTodoCompleted(event, position)
 			);
-			todoLi.appendChild(this.createTodoTemplate(todo));
+      todoLi.appendChild(this.createTodoTemplate(todo));
 			todoLi.appendChild(this.createDeleteButton());
 			todosUl.appendChild(todoLi);
 		}, this);
-	},
+  },
 
 	createDeleteButton : function() {
 		var deleteButton =  document.createElement('button');
-		deleteButton.textContent = 'Delete';
-		deleteButton.className = 'advanceDeleteButton danger';
+    deleteButton.className = 'advanceDeleteButton danger fas fa-trash-alt';
 		deleteButton.onclick = function() {
 			var position = this.parentNode.id;     //this->deleteButton
 			//console.log(this.parentNode)
@@ -261,7 +260,7 @@ var view = {
 		var todoInput = document.createElement('input');
 		var todoSpan = document.createElement('span');
 		var todoContent = document.createElement('span');
-		
+
 		todoInput.setAttribute('type', 'checkbox');
 		todoSpan.classList.add('todo-checkmark');
 		todoContent.textContent = todoText;

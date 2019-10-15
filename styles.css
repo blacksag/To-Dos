@@ -1,3 +1,5 @@
+@import "./node_modules/@fortawesome/fontawesome-free/css/all.css";
+
 :root {
     --dark: #303941;
     --light: #f2f5fa;
@@ -248,6 +250,10 @@ input:focus {
     border: 1px solid #ccc;
 }
 
+.advanceDeleteButton {
+  width: 60px;
+}
+
 .todos-container label input:checked ~ .todo-checkmark {
     background-color: var(--success);
 }
@@ -257,7 +263,7 @@ input:focus {
     position: absolute;
     display: none;
 }
-  
+
 .todos-container label input:checked ~ .todo-checkmark:after {
     display: block;
 }
