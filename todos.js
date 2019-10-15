@@ -246,7 +246,8 @@ var view = {
 
 	createDeleteButton : function() {
 		var deleteButton =  document.createElement('button');
-		deleteButton.textContent = 'Delete';
+		 //deleteButton.textContent = 'Delete';
+		deleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>' ;
 		deleteButton.className = 'advanceDeleteButton danger';
 		deleteButton.onclick = function() {
 			var position = this.parentNode.id;     //this->deleteButton
