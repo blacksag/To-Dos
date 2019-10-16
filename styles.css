@@ -21,7 +21,8 @@ body {
 
 /* Form Controls */
 
-button, input {
+button,
+input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -147,7 +148,7 @@ input:focus {
 
 .control-group-buttons {
     flex: none;
-    width: 80px;
+    width: 100px;
     margin-right: .5rem;
 }
 
@@ -179,7 +180,8 @@ input:focus {
 }
 
 .todos-container h2 {
-    position: relative; /* Give a higher stacking context to make box-shadow visible. */
+    position: relative;
+    /* Give a higher stacking context to make box-shadow visible. */
     margin: 0;
     text-align: center;
     font-size: 15px;
@@ -244,11 +246,11 @@ input:focus {
     border: 1px solid rgb(226, 226, 226);
 }
 
-.todos-container label:hover input ~ .todo-checkmark {
+.todos-container label:hover input~.todo-checkmark {
     border: 1px solid #ccc;
 }
 
-.todos-container label input:checked ~ .todo-checkmark {
+.todos-container label input:checked~.todo-checkmark {
     background-color: var(--success);
 }
 
@@ -257,8 +259,8 @@ input:focus {
     position: absolute;
     display: none;
 }
-  
-.todos-container label input:checked ~ .todo-checkmark:after {
+
+.todos-container label input:checked~.todo-checkmark:after {
     display: block;
 }
 
@@ -276,4 +278,10 @@ input:focus {
 
 .todo-completed {
     text-decoration: line-through;
+}
+
+/* Button ICON */
+.btn-icon {
+    float: left;
+    clear: both;
 }
