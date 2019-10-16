@@ -246,8 +246,7 @@ var view = {
 
 	createDeleteButton : function() {
 		var deleteButton =  document.createElement('button');
-		deleteButton.textContent = 'Delete';
-		deleteButton.className = 'advanceDeleteButton danger';
+		deleteButton.className = 'advanceDeleteButton danger-icon';
 		deleteButton.onclick = function() {
 			var position = this.parentNode.id;     //this->deleteButton
 			//console.log(this.parentNode)
