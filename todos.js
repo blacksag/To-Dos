@@ -42,14 +42,12 @@ var todoList = {
 
 	toggleAll : function () {
 		var totalTodos = this.todos.length;
-		var completedTodos = 0;
 
 		//get number of completed todos
-		this.todos.forEach( function (todo) {
-			if (todo.completed === true) {
-				completedTodos++;
-			}
-		});
+		var completedTodos = this.todos.reduce( function (count, todo) {
+			// if it is completed, increment count, otherwise don't change
+			return todo.completed ? count + 1 : count;
+		}, 0);
 
 		//if everything is true make everything false
 		if (completedTodos === totalTodos) {
