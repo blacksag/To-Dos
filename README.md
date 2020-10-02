@@ -21,3 +21,4 @@ The functions of this object are used by handler for creating and updating the h
 2. Any improvement in JS file for adding or improving thing are also appreciated.
 
 **Also, If you have an idea regarding any improvement you can create an issue so that other interested ones can work open it.**
+Rishabh Jain
